@@ -23,7 +23,9 @@
     
     <script>
         function geolocalizar(){
-        
+         navigator.geolocation.getCurrentPosition(verPosicion);
+            mapa=document.getElementById('mapa');
+            mapa.src="http://maps.googleapis.com/maps/api/staticmap?center=" + posicion.coords.latitude + ',' + posicion.coords.longitude+"&zoom=15&size=500x500&markers=color:red%7Clabel:YO!%7c" + posicion.coords.latitude + ',' + posicion.coords.longitude;
            
         }
         window.addEventListener('load',verPosicion,true);

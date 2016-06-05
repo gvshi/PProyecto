@@ -1,0 +1,33 @@
+
+
+
+
+
+
+
+
+.izquierda{
+    height: 50px;
+    width: 10%;
+    border-right: 1px solid #00AE97;
+    float: left;
+    box-sizing: border-box;
+    
+}
+
+img{
+    float: center;
+    
+    
+    
+    border-radius: 3px;
+    padding: 0px;
+    box-sizing: border-box; 
+    
+}
+
+
+
+
+
+

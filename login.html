@@ -1,0 +1,38 @@
+<html>
+<head>
+    <title>Inicio de Sesión</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="estilo.css" type="text/css">   
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500' rel='stylesheet' type='text/css'>
+</head>
+    
+<body>
+            <nav>
+            <h1>Inicio de sesión</h1>
+            <div class="menu">
+            <input type="button" id="btnmenu" onclick="registro()" value="Registrate">
+            </div>
+        </nav>  
+        
+       <div class="contenedor">
+    <input type="email" placeholder="Correo" id="correo" required>
+    <input type="password" placeholder="Contraseña" id="contraseña" required>
+    
+        <button onclick="login()">Iniciar Sesión</button>
+        </div> 
+
+    <script>
+       function login(){
+     
+           
+           
+           //Redirigimos a la segunda pagina
+           window.location.assign('main.html');
+       }
+        function registro(){
+            window.location.assign('index.html');
+        }
+    </script>
+</body>
+</html>

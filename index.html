@@ -1,0 +1,54 @@
+<html>
+<head>
+    <title>REGISTRO DE USUARIO</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="estilo.css" type="text/css">   
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500' rel='stylesheet' type='text/css'>
+</head>
+    
+    <body>
+        <nav>
+            <h1>Registro de Usuario</h1>
+                <div class="menu">
+                    <input type="button" id="btnmenu" onclick="login()" value="Inicia sesión">
+                </div>
+        </nav>  
+        
+    <div class="contenedor" id="container">
+        <input type="text" placeholder="Nombre" id="nombre" required>
+        <input type="email" placeholder="Correo" id="correo" required>
+        <input type="password" placeholder="Contraseña" id="contraseña" required>
+        <input type="password" placeholder="Confirmación de Contraseña" id="ccontraseña" required>
+        <div class="aviso"></div>
+        <button onclick="registro()">Regístrate</button>
+    </div> 
+
+    <script>
+       function registro(){
+           nombre = document.getElementById('nombre').value;
+           correo = document.getElementById('correo').value;
+           contraseña = document.getElementById('contraseña').value;
+           ccontraseña = document.getElementById('ccontraseña').value;
+           localStorage.setItem('nombre', nombre);
+           localStorage.setItem('correo', correo);
+           localStorage.setItem('contraseña', contraseña);
+           
+                if(contraseña == ccontraseña && contraseña != ""){
+                    
+                //Redirigimos a la segunda pagina
+                window.location.assign('login.html');
+                }
+                else{
+                    nuevoPendiente= "<div class='aviso'><p>"+"Ingresa una contraseña valida"+"</p></div>";
+                //Incrustamos el nuevo div en el contenedor
+                document.getElementById('container').innerHTML+=nuevoPendiente
+                    alert('Las contraseñas deben coincidir')
+                }          
+       }
+            function login(){
+                 window.location.assign('login.html');
+            }
+    </script>
+</body>
+</html>

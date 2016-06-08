@@ -9,19 +9,17 @@
     
     <body>
         <nav>
-            <h1>Registro de Usuario</h1>
-                <div class="menu">
-                    <input type="button" id="btnmenu" onclick="login()" value="Inicia sesión">
-                </div>
+            <h1>Registro de Usuario</h1>               
         </nav>  
         
     <div class="contenedor" id="container">
+        <input id="espacio" disabled>
         <input type="text" placeholder="Nombre" id="nombre" required>
         <input type="email" placeholder="Correo" id="correo" required>
         <input type="password" placeholder="Contraseña" id="contraseña" required>
         <input type="password" placeholder="Confirmación de Contraseña" id="ccontraseña" required>
-        <div class="aviso"></div>
-        <button onclick="registro()">Regístrate</button>
+        <button onclick="registro()">Regístrate</button>        
+        <input type="button" id="btnmenu" onclick="login()" value="Inicia sesión">
     </div> 
 
     <script>
@@ -30,22 +28,25 @@
            correo = document.getElementById('correo').value;
            contraseña = document.getElementById('contraseña').value;
            ccontraseña = document.getElementById('ccontraseña').value;
-           localStorage.setItem('nombre', nombre);
-           localStorage.setItem('correo', correo);
-           localStorage.setItem('contraseña', contraseña);
            
-                if(contraseña == ccontraseña && contraseña != ""){
+                if(contraseña == ccontraseña && contraseña != "" && correo != "" && nombre != ""){
+                   
+                    alert('¡Registro exitoso!');
                     
-                //Redirigimos a la segunda pagina
-                window.location.assign('login.html');
+                    localStorage.setItem('nombre', nombre);
+                    localStorage.setItem('correo', correo);
+                    localStorage.setItem('contraseña', contraseña);
+                    
+                    window.location.assign('login.html');          
                 }
-                else{
-                    nuevoPendiente= "<div class='aviso'><p>"+"Ingresa una contraseña valida"+"</p></div>";
-                //Incrustamos el nuevo div en el contenedor
-                document.getElementById('container').innerHTML+=nuevoPendiente
-                    alert('Las contraseñas deben coincidir')
-                }          
-       }
+                if(contraseña == "" | ccontraseña == "" | correo == "" | nombre == ""){
+                    alert('Debes llenar todos los datos');
+                }
+                if(contraseña != ccontraseña){
+                    alert('Las contraseñas deben coincidir');
+                }
+        }          
+       
             function login(){
                  window.location.assign('login.html');
             }

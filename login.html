@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>Inicio de Sesión</title>
+    <title>INICIO DE SESIÓN</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="estilo.css" type="text/css">   
@@ -8,27 +8,42 @@
 </head>
     
 <body>
-            <nav>
-            <h1>Inicio de sesión</h1>
-            <div class="menu">
-            <input type="button" id="btnmenu" onclick="registro()" value="Registrate">
-            </div>
+        <nav>
+        <h1>Inicio de sesión</h1>
         </nav>  
         
        <div class="contenedor">
-    <input type="email" placeholder="Correo" id="correo" required>
-    <input type="password" placeholder="Contraseña" id="contraseña" required>
-    
+        <input id="espacio" disabled>
+        <input type="email" placeholder="Correo" id="correo" required>
+        <input type="password" placeholder="Contraseña" id="contraseña" required>
         <button onclick="login()">Iniciar Sesión</button>
+        <input type="button" id="btnmenu" onclick="registro()" value="Registrate">
         </div> 
-
+        
     <script>
-       function login(){
-     
+        function login(){
+            correologin = document.getElementById('correo').value;
+            contraseñalogin = document.getElementById('contraseña').value;
+            correo = localStorage.getItem('correo');
+            contraseña = localStorage.getItem('contraseña');
+
+            
+                if(contraseña == contraseñalogin && correo == correologin && correo != "" && contraseña != ""){
+                   
+                    alert('¡Inicio de Sesión Exitoso!');
+                                    
+                    window.location.assign('main.html');          
+                }
+               if(correo == correologin && contraseña != contraseñalogin){
+                    alert('La contraseña no es correcta. Por favor, vuelve a intentarlo.');
+                } 
+            if(correologin == ""){
+                    alert('El correo no puede estar vacio');
+                } 
+            if(correologin != correo && correologin !="" ){
+                    alert('Usuario no Registrado');
+                }    
            
-           
-           //Redirigimos a la segunda pagina
-           window.location.assign('main.html');
        }
         function registro(){
             window.location.assign('index.html');

@@ -30,4 +30,17 @@ img{
 
 
 
-
+background: #667c96;
+    width: 60%;
+    text-align: center;    
+    color: #ffffcc;
+    height: 70%;
+    box-sizing: border-box;
+    font-weight: ;
+    border-color: #dde7e9;
+    text-shadow: 0px 2px 1px #000000;
+    margin-top: 1%;
+    margin-left: 1%;
+    border-radius: 3px;
+#313131 #b06a04
+text-shadow: 1px 3px 1px #592f00;

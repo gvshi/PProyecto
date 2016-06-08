@@ -13,26 +13,25 @@
             <nav>
             <h1>Registro de Lugares</h1>
             <div class="menu">
-                <input type="button" id="btnmenu" onclick="lugares()" value="Lugares Guardados">
+                
                 </div>
         </nav> 
            <div class="contenedor">
-<img id="mapa">
-    
+<img id="mapa" src="http://maps.googleapis.com/maps/api/staticmap?center=25.3176452,82.97391440006001&zoom=15&markers=25.3176452,82.97391440000001|25.3176452,82.97391440000001&size=175x175">
+<img id="mapa2">  
     <button onclick="geolocalizar()">Geolocalizarme</button>
-    
+    <input type="button" id="btnmenu" onclick="lugares()" value="Lugares">
     <script>
         function geolocalizar(){
-         navigator.geolocation.getCurrentPosition(verPosicion);
-            mapa=document.getElementById('mapa');
-            mapa.src="http://maps.googleapis.com/maps/api/staticmap?center=" + posicion.coords.latitude + ',' + posicion.coords.longitude+"&zoom=15&size=500x500&markers=color:red%7Clabel:YO!%7c" + posicion.coords.latitude + ',' + posicion.coords.longitude;
-           
+        
+           navigator.geolocation.getCurrentPosition(verPosicion);
+            
         }
-        window.addEventListener('load',verPosicion,true);
         function verPosicion(posicion){
-             navigator.geolocation.getCurrentPosition(verPosicion);
-            mapa=document.getElementById('mapa');
-            mapa.src="http://maps.googleapis.com/maps/api/staticmap?center=" + posicion.coords.latitude + ',' + posicion.coords.longitude+"&zoom=15&size=500x500&markers=color:red%7Clabel:YO!%7c" + posicion.coords.latitude + ',' + posicion.coords.longitude;
+             alert('LONG: '+ posicion.coords.longitude)
+            alert('LAT: '+ posicion.coords.latitude)
+            mapa2=document.getElementById('mapa2');
+            mapa2.src="http://maps.googleapis.com/maps/api/staticmap?center=" + posicion.coords.latitude + ',' + posicion.coords.longitude+"&zoom=15&size=175x175&markers=color:red%7Clabel:YO!%7c" + posicion.coords.latitude + ',' + posicion.coords.longitude;
         }
     </script>
     </div>
